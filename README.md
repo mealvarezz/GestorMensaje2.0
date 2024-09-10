@@ -17,27 +17,27 @@ Sigue estos pasos para instalar y ejecutar la aplicación:
    ```bash
    git clone https://github.com/tu-usuario/url-del-repositorio
 
-2. **Crea y activa un entorno virtual:*:
+2. **Crea y activa un entorno virtual:**:
     ```bash
    python -m venv venv
    source venv/bin/activate
     
-3.**Instala las dependencias**:
-   ´``bash
+3. **Instala las dependencias**:
+   ```bash
    pip install -r requirements.txt
 
-4.**Realiza las migraciones**:
-   ´´´bash
+4. **Realiza las migraciones**:
+   ```bash
    python manage.py makemigrations
    python manage.py migrate
 
-5.**Inicia el servidor de desarrollo**:
-   ´´´bash
-      python manage.py runserver
+5. **Inicia el servidor de desarrollo**:
+   ```bash
+   python manage.py runserver
 
-6.** Accede a la aplicación en tu navegador:**
-   ´´´bash
-     http://127.0.0.1:8000/
+6. ** Accede a la aplicación en tu navegador:**
+   ```bash
+   http://127.0.0.1:8000/
 
 ##Contacto
 En caso de alguna duda o sugerencia, no dudes en contactarme mediante este email: mealvarez@udc.edu.ar
