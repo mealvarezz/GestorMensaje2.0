@@ -39,5 +39,5 @@ Sigue estos pasos para instalar y ejecutar la aplicación:
    ```bash
    http://127.0.0.1:8000/
 
-##Contacto
+## Contacto
 En caso de alguna duda o sugerencia, no dudes en contactarme mediante este email: mealvarez@udc.edu.ar
