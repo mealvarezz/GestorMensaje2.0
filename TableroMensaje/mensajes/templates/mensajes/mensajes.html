@@ -1,0 +1,67 @@
+{% extends 'mensajes/base.html' %}
+
+{% block titulo %}Mensajes{% endblock %}
+
+{% block contenido %}
+    <h2>Mensajes Recibidos</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Remitente</th>
+                <th>Contenido</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mensaje in mensajes_recibidos %}
+                <tr>
+                    <td>{{ mensaje.remitente }}</td>
+                    <td>{{ mensaje.contenido }}</td>
+                    <td>{{ mensaje.fecha_envio|date:"d/m/Y H:i" }}</td>
+                    <td>
+                        <form action="{% url 'eliminar_mensaje' mensaje.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-primary">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No tienes mensajes recibidos.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Mensajes Enviados</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Destinatario</th>
+                <th>Contenido</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mensaje in mensajes_enviados %}
+                <tr>
+                    <td>{{ mensaje.destinatario }}</td>
+                    <td>{{ mensaje.contenido }}</td>
+                    <td>{{ mensaje.fecha_envio|date:"d/m/Y H:i" }}</td>
+                    <td>
+                        <form action="{% url 'eliminar_mensaje' mensaje.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-primary">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No has enviado mensajes.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

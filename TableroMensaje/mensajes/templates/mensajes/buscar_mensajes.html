@@ -1,0 +1,41 @@
+{% extends 'mensajes/base.html' %}
+
+{% block titulo %}Buscar Mensajes{% endblock %}
+
+{% block contenido %}
+    <h2>Buscar Mensajes</h2>
+    <form method="POST" action="{% url 'buscar_mensaje' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="busqueda" placeholder="Buscar..." value="{{ query }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    {% if mensajes %}
+        <h3 class="mt-4">Resultados:</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Remitente</th>
+                    <th>Destinatario</th>
+                    <th>Contenido</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mensaje in mensajes %}
+                    <tr>
+                        <td>{{ mensaje.remitente }}</td>
+                        <td>{{ mensaje.destinatario }}</td>
+                        <td>{{ mensaje.contenido }}</td>
+                        <td>{{ mensaje.fecha_envio|date:"d/m/Y H:i" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No se encontraron mensajes.</p>
+    {% endif %}
+{% endblock %}
+

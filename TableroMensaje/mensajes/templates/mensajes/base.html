@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Gestor de Mensajes{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        :root {
+            --primary: #9c27b0; /* Lila fuerte */
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white; 
+            padding: 0.25rem 0.5rem; /
+            font-size: 0.875rem; 
+            border-radius: 0.2rem;
+        }
+        
+        btn-primary:hover {
+            background-color: #9c27b0; 
+            border-color: #9c27b0; 
+            cursor: pointer; 
+        }
+        .btn-primary:active {
+            background-color: #8e24aa; 
+            border-color: #8e24aa; 
+        }    
+        
+        .bg-lila {
+            background-color: #9c27b0; 
+        }
+        .bg-lila-light {
+            background-color: #f3e5f5; 
+        }
+        .text-lila {
+            color: #9c27b0;
+        }
+        .text-lila-light {
+            color: #f3e5f5; 
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-lila">
+        <a class="navbar-brand" href="#">Gestor de Mensajes</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'ver_mensajes' %}">Mensajes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'buscar_mensaje' %}">Buscar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'crear_mensaje' %}">Crear Mensaje</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container my-5">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+
+
+    <!--  Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
