@@ -35,7 +35,7 @@ Sigue estos pasos para instalar y ejecutar la aplicación:
    ```bash
    python manage.py runserver
 
-6. ** Accede a la aplicación en tu navegador:**
+6. **Accede a la aplicación en tu navegador:**
    ```bash
    http://127.0.0.1:8000/
 
